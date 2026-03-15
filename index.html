@@ -26,6 +26,7 @@ color:white;
 scroll-behavior:smooth;
 }
 
+
 /* NAVBAR */
 
 nav{
@@ -158,18 +159,6 @@ gap:25px;
 animation:scroll 25s linear infinite;
 }
 
-.slide-track img{
-width:280px;
-border-radius:15px;
-transition:0.4s;
-cursor:pointer;
-}
-
-.slide-track img:hover{
-transform:scale(1.08);
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
-}
-
 @keyframes scroll{
 
 0%{transform:translateX(0)}
@@ -178,7 +167,32 @@ box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
 
-/* IMAGE POPUP */
+/* PROJECT CARDS */
+
+.card{
+text-align:center;
+}
+
+.card img{
+width:260px;
+border-radius:14px;
+transition:0.4s;
+cursor:pointer;
+}
+
+.card img:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+.card p{
+margin-top:10px;
+font-size:14px;
+opacity:0.8;
+}
+
+
+/* POPUP IMAGE */
 
 .popup{
 position:fixed;
@@ -288,23 +302,40 @@ Explore Projects
 
 <div class="slide-track">
 
+<div class="card">
 <img src="Project11.jpg" onclick="openPopup(this)">
+<p>Brand Logo Design</p>
+</div>
+
+<div class="card">
 <img src="Project12.jpg" onclick="openPopup(this)">
+<p>Modern Logo Concept</p>
+</div>
+
+<div class="card">
 <img src="Project13.jpg" onclick="openPopup(this)">
+<p>Creative Logo Design</p>
+</div>
+
+<div class="card">
 <img src="Project14.jpg" onclick="openPopup(this)">
+<p>Minimal Logo Style</p>
+</div>
+
+<div class="card">
 <img src="Project15.jpg" onclick="openPopup(this)">
-<img src="Project11.jpg">
-<img src="Project12.jpg">
-
+<p>Event Logo Design</p>
 </div>
 
 </div>
 
 </div>
 
+</div>
 
 
-<!-- SOCIAL MEDIA -->
+
+<!-- SOCIAL MEDIA DESIGN -->
 
 <div class="category" id="social">
 
@@ -312,13 +343,30 @@ Explore Projects
 
 <div class="slide-track">
 
+<div class="card">
 <img src="Project1.jpg" onclick="openPopup(this)">
+<p>Instagram Post Design</p>
+</div>
+
+<div class="card">
 <img src="Project2.jpg" onclick="openPopup(this)">
+<p>Creative Campaign Design</p>
+</div>
+
+<div class="card">
 <img src="Project3.jpg" onclick="openPopup(this)">
+<p>Marketing Visual</p>
+</div>
+
+<div class="card">
 <img src="Project4.jpg" onclick="openPopup(this)">
+<p>Event Promotion</p>
+</div>
+
+<div class="card">
 <img src="Project5.jpg" onclick="openPopup(this)">
-<img src="Project1.jpg">
-<img src="Project2.jpg">
+<p>Social Media Creative</p>
+</div>
 
 </div>
 
@@ -336,13 +384,30 @@ Explore Projects
 
 <div class="slide-track">
 
+<div class="card">
 <img src="Project6.jpg" onclick="openPopup(this)">
+<p>Creative Moodboard</p>
+</div>
+
+<div class="card">
 <img src="Project7.jpg" onclick="openPopup(this)">
+<p>Brand Moodboard</p>
+</div>
+
+<div class="card">
 <img src="Project8.jpg" onclick="openPopup(this)">
+<p>Design Inspiration</p>
+</div>
+
+<div class="card">
 <img src="Project9.jpg" onclick="openPopup(this)">
+<p>Concept Moodboard</p>
+</div>
+
+<div class="card">
 <img src="Project10.jpg" onclick="openPopup(this)">
-<img src="Project6.jpg">
-<img src="Project7.jpg">
+<p>Visual Style Board</p>
+</div>
 
 </div>
 
@@ -377,6 +442,8 @@ Explore Projects
 </footer>
 
 
+
+<!-- IMAGE POPUP -->
 
 <div class="popup" id="popup">
 
