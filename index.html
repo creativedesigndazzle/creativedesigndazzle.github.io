@@ -26,6 +26,7 @@ color:white;
 scroll-behavior:smooth;
 }
 
+
 /* NAVBAR */
 
 nav{
@@ -59,6 +60,7 @@ font-weight:500;
 nav ul li a:hover{
 color:#ff4ecd;
 }
+
 
 /* HERO */
 
@@ -94,6 +96,7 @@ color:black;
 font-weight:bold;
 }
 
+
 /* SECTION */
 
 .section{
@@ -106,7 +109,8 @@ font-size:40px;
 margin-bottom:40px;
 }
 
-/* PORTFOLIO */
+
+/* CATEGORY TABS */
 
 .tabs{
 display:flex;
@@ -131,6 +135,9 @@ background:black;
 color:white;
 }
 
+
+/* PORTFOLIO */
+
 .category{
 display:none;
 }
@@ -139,39 +146,82 @@ display:none;
 display:block;
 }
 
-.auto-slider{
+.slider{
 display:flex;
 gap:25px;
-overflow-x:auto;
-scroll-behavior:smooth;
-padding:20px;
+overflow:hidden;
+position:relative;
 }
 
-.auto-slider img{
-width:300px;
+.slide-track{
+display:flex;
+gap:25px;
+animation:scroll 25s linear infinite;
+}
+
+.slide-track img{
+width:280px;
 border-radius:15px;
 transition:0.4s;
+cursor:pointer;
 }
 
-.auto-slider img:hover{
+.slide-track img:hover{
 transform:scale(1.08);
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
+
+@keyframes scroll{
+
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
+
+}
+
+
+/* POPUP IMAGE */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:2000;
+}
+
+.popup img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+.popup span{
+position:absolute;
+top:30px;
+right:40px;
+font-size:40px;
+cursor:pointer;
+}
+
 
 /* INSTAGRAM */
 
-.reels{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
+.instagram-link{
+margin-top:30px;
+font-size:18px;
 }
 
-.reels iframe{
-width:100%;
-height:500px;
-border:none;
-border-radius:15px;
+.instagram-link a{
+color:#ff4ecd;
+text-decoration:none;
+font-weight:600;
 }
+
 
 /* CONTACT */
 
@@ -194,6 +244,7 @@ margin-top:50px;
 
 <body>
 
+
 <!-- NAVBAR -->
 
 <nav>
@@ -212,13 +263,14 @@ margin-top:50px;
 </nav>
 
 
+
 <!-- HERO -->
 
 <section class="hero" id="home">
 
 <h1>Creative Design Dazzle</h1>
 
-<p>Creative inspiration, visual storytelling & premium design ideas</p>
+<p>Creative inspiration, visual storytelling & digital design ideas</p>
 
 <button onclick="document.getElementById('portfolio').scrollIntoView()">
 Explore Projects
@@ -236,22 +288,52 @@ Explore Projects
 
 <div class="tabs">
 
-<button class="tab active" onclick="showCategory('logos')">Logo Design</button>
+<button class="tab active" onclick="showCategory('logo')">Logo</button>
+<button class="tab" onclick="showCategory('social')">Social Media Design</button>
 <button class="tab" onclick="showCategory('branding')">Branding</button>
 <button class="tab" onclick="showCategory('moodboard')">Moodboards</button>
-<button class="tab" onclick="showCategory('posters')">Posters</button>
 
 </div>
 
 
-<!-- LOGOS -->
+<!-- LOGO -->
 
-<div class="category active" id="logos">
+<div class="category active" id="logo">
 
-<div class="auto-slider">
+<div class="slider">
 
+<div class="slide-track">
+
+<img src="Project11.jpg" onclick="openPopup(this)">
+<img src="Project12.jpg" onclick="openPopup(this)">
+<img src="Project13.jpg" onclick="openPopup(this)">
+<img src="Project14.jpg" onclick="openPopup(this)">
+<img src="Project15.jpg" onclick="openPopup(this)">
+<img src="Project11.jpg">
+<img src="Project12.jpg">
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- SOCIAL MEDIA -->
+
+<div class="category" id="social">
+
+<div class="slider">
+
+<div class="slide-track">
+
+<img src="Project1.jpg" onclick="openPopup(this)">
+<img src="Project2.jpg" onclick="openPopup(this)">
 <img src="Project1.jpg">
 <img src="Project2.jpg">
+
+</div>
 
 </div>
 
@@ -263,47 +345,41 @@ Explore Projects
 
 <div class="category" id="branding">
 
-<div class="auto-slider">
+<div class="slider">
 
+<div class="slide-track">
+
+<img src="Project3.jpg" onclick="openPopup(this)">
+<img src="Project4.jpg" onclick="openPopup(this)">
+<img src="Project5.jpg" onclick="openPopup(this)">
 <img src="Project3.jpg">
 <img src="Project4.jpg">
-<img src="Project5.jpg">
 
 </div>
 
 </div>
 
+</div>
 
 
-<!-- MOODBOARD -->
+
+<!-- MOODBOARDS -->
 
 <div class="category" id="moodboard">
 
-<div class="auto-slider">
+<div class="slider">
 
+<div class="slide-track">
+
+<img src="Project6.jpg" onclick="openPopup(this)">
+<img src="Project7.jpg" onclick="openPopup(this)">
+<img src="Project8.jpg" onclick="openPopup(this)">
+<img src="Project9.jpg" onclick="openPopup(this)">
+<img src="Project10.jpg" onclick="openPopup(this)">
 <img src="Project6.jpg">
 <img src="Project7.jpg">
-<img src="Project8.jpg">
-<img src="Project9.jpg">
-<img src="Project10.jpg">
 
 </div>
-
-</div>
-
-
-
-<!-- POSTERS -->
-
-<div class="category" id="posters">
-
-<div class="auto-slider">
-
-<img src="Project11.jpg">
-<img src="Project12.jpg">
-<img src="Project13.jpg">
-<img src="Project14.jpg">
-<img src="Project15.jpg">
 
 </div>
 
@@ -313,19 +389,19 @@ Explore Projects
 
 
 
-<!-- INSTAGRAM REELS -->
+<!-- INSTAGRAM -->
 
 <section id="instagram" class="section">
 
-<h2>Instagram Reels</h2>
+<h2>Instagram</h2>
 
-<div class="reels">
+<p>See more creative designs and reels on our Instagram page.</p>
 
-<iframe src="https://www.instagram.com/reel/C8l3TjJxH8o/embed"></iframe>
+<div class="instagram-link">
 
-<iframe src="https://www.instagram.com/reel/C9Vb98pPj0k/embed"></iframe>
-
-<iframe src="https://www.instagram.com/reel/C9F4H6xJpR7/embed"></iframe>
+<a href="https://www.instagram.com/creativedesigndazzle/" target="_blank">
+Visit @creativedesigndazzle
+</a>
 
 </div>
 
@@ -357,6 +433,18 @@ Explore Projects
 
 
 
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+<span onclick="closePopup()">×</span>
+
+<img id="popup-img">
+
+</div>
+
+
+
 <script>
 
 function showCategory(cat){
@@ -375,8 +463,21 @@ event.target.classList.add("active")
 
 }
 
-</script>
+function openPopup(img){
 
+document.getElementById("popup").style.display="flex"
+
+document.getElementById("popup-img").src=img.src
+
+}
+
+function closePopup(){
+
+document.getElementById("popup").style.display="none"
+
+}
+
+</script>
 
 </body>
 
