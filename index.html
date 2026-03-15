@@ -1,53 +1,63 @@
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Creative Design Dazzle</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
-html{
-scroll-behavior:smooth;
-}
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Poppins;
 }
 
 body{
-background:#0d0d0d;
+background:#0f0f0f;
 color:white;
+scroll-behavior:smooth;
 }
 
 /* NAVBAR */
 
-header{
+nav{
+position:fixed;
+top:0;
+width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 10%;
-background:#111;
-position:sticky;
-top:0;
-z-index:100;
+padding:15px 60px;
+background:black;
+z-index:1000;
 }
 
 .logo img{
-height:55px;
+height:45px;
 }
 
-nav a{
+nav ul{
+display:flex;
+list-style:none;
+gap:35px;
+}
+
+nav ul li a{
 color:white;
-margin-left:25px;
 text-decoration:none;
-font-weight:bold;
+font-weight:500;
+}
+
+nav ul li a:hover{
+color:#ff4ecd;
 }
 
 /* HERO */
@@ -56,35 +66,31 @@ font-weight:bold;
 height:100vh;
 display:flex;
 flex-direction:column;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
-background:linear-gradient(135deg,#ff4da6,#6a5cff);
-animation:gradient 8s infinite alternate;
-}
-
-@keyframes gradient{
-0%{background:linear-gradient(135deg,#ff4da6,#6a5cff);}
-100%{background:linear-gradient(135deg,#ff7a18,#32d2aa);}
+background:linear-gradient(135deg,#ff4ecd,#6a5cff);
+padding-top:80px;
 }
 
 .hero h1{
 font-size:60px;
-margin-bottom:10px;
+margin-bottom:20px;
 }
 
 .hero p{
 font-size:20px;
-max-width:600px;
+margin-bottom:30px;
 }
 
-.btn{
-margin-top:25px;
-padding:14px 30px;
+.hero button{
+padding:14px 35px;
+border:none;
+border-radius:40px;
+font-size:16px;
+cursor:pointer;
 background:white;
 color:black;
-border-radius:25px;
-text-decoration:none;
 font-weight:bold;
 }
 
@@ -97,165 +103,280 @@ text-align:center;
 
 .section h2{
 font-size:40px;
-margin-bottom:30px;
+margin-bottom:40px;
 }
 
-/* GALLERY */
+/* PORTFOLIO */
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+.tabs{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-bottom:40px;
+flex-wrap:wrap;
 }
 
-.gallery img{
-width:100%;
-border-radius:12px;
-transition:transform 0.4s;
+.tab{
+padding:10px 20px;
+border:none;
+background:#eee;
+color:black;
+border-radius:25px;
+cursor:pointer;
+font-weight:bold;
 }
 
-.gallery img:hover{
-transform:scale(1.05);
+.tab.active{
+background:black;
+color:white;
 }
 
-/* REELS GRID */
+.category{
+display:none;
+}
+
+.category.active{
+display:block;
+}
+
+.auto-slider{
+display:flex;
+gap:25px;
+overflow-x:auto;
+scroll-behavior:smooth;
+padding:20px;
+}
+
+.auto-slider img{
+width:300px;
+border-radius:15px;
+transition:0.4s;
+}
+
+.auto-slider img:hover{
+transform:scale(1.08);
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* INSTAGRAM */
 
 .reels{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-max-width:1000px;
-margin:auto;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
 }
 
-/* SOCIAL */
-
-.social a{
-display:inline-block;
-margin:10px;
-padding:12px 24px;
-background:#E1306C;
-border-radius:25px;
-color:white;
-text-decoration:none;
+.reels iframe{
+width:100%;
+height:500px;
+border:none;
+border-radius:15px;
 }
 
-/* FOOTER */
+/* CONTACT */
+
+.contact{
+font-size:18px;
+line-height:35px;
+}
 
 footer{
-background:#111;
-padding:30px;
+background:black;
+padding:25px;
 text-align:center;
-margin-top:60px;
+margin-top:50px;
 }
 
 </style>
 
 </head>
 
+
 <body>
 
-<header>
-
-<div class="logo">
-<img src="logo.jpg">
-</div>
+<!-- NAVBAR -->
 
 <nav>
 
-<a href="#about">About</a>
-<a href="#gallery">Gallery</a>
-<a href="#reels">Reels</a>
-<a href="#contact">Contact</a>
+<div class="logo">
+<img src="logo.jpeg">
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#instagram">Instagram</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 
 </nav>
 
-</header>
 
+<!-- HERO -->
 
-<section class="hero">
+<section class="hero" id="home">
 
 <h1>Creative Design Dazzle</h1>
 
-<p>
-Creative inspiration, visual storytelling, and digital design ideas.
-</p>
+<p>Creative inspiration, visual storytelling & premium design ideas</p>
 
-<a class="btn" href="https://www.instagram.com/creativedesigndazzle/" target="_blank">
-Explore Instagram
-</a>
+<button onclick="document.getElementById('portfolio').scrollIntoView()">
+Explore Projects
+</button>
 
 </section>
 
 
-<section id="about" class="section">
 
-<h2>About Creative Design Dazzle</h2>
+<!-- PORTFOLIO -->
 
-<p>
-Creative Design Dazzle showcases creative ideas, digital artwork,
-design inspiration and engaging visual content through Instagram.
-</p>
+<section id="portfolio" class="section">
 
-</section>
+<h2>Creative Projects</h2>
+
+<div class="tabs">
+
+<button class="tab active" onclick="showCategory('logos')">Logo Design</button>
+<button class="tab" onclick="showCategory('branding')">Branding</button>
+<button class="tab" onclick="showCategory('moodboard')">Moodboards</button>
+<button class="tab" onclick="showCategory('posters')">Posters</button>
+
+</div>
 
 
-<section id="gallery" class="section">
+<!-- LOGOS -->
 
-<h2>Design Gallery</h2>
+<div class="category active" id="logos">
 
-<div class="gallery">
+<div class="auto-slider">
 
-<img src="https://picsum.photos/400?1">
-<img src="https://picsum.photos/400?2">
-<img src="https://picsum.photos/400?3">
-<img src="https://picsum.photos/400?4">
-<img src="https://picsum.photos/400?5">
-<img src="https://picsum.photos/400?6">
+<img src="Project1.jpg">
+<img src="Project2.jpg">
+
+</div>
+
+</div>
+
+
+
+<!-- BRANDING -->
+
+<div class="category" id="branding">
+
+<div class="auto-slider">
+
+<img src="Project3.jpg">
+<img src="Project4.jpg">
+<img src="Project5.jpg">
+
+</div>
+
+</div>
+
+
+
+<!-- MOODBOARD -->
+
+<div class="category" id="moodboard">
+
+<div class="auto-slider">
+
+<img src="Project6.jpg">
+<img src="Project7.jpg">
+<img src="Project8.jpg">
+<img src="Project9.jpg">
+<img src="Project10.jpg">
+
+</div>
+
+</div>
+
+
+
+<!-- POSTERS -->
+
+<div class="category" id="posters">
+
+<div class="auto-slider">
+
+<img src="Project11.jpg">
+<img src="Project12.jpg">
+<img src="Project13.jpg">
+<img src="Project14.jpg">
+<img src="Project15.jpg">
+
+</div>
 
 </div>
 
 </section>
 
 
-<section id="reels" class="section">
 
-<h2>Latest Instagram Reels</h2>
+<!-- INSTAGRAM REELS -->
+
+<section id="instagram" class="section">
+
+<h2>Instagram Reels</h2>
 
 <div class="reels">
 
-<blockquote class="instagram-media"
-data-instgrm-permalink="https://www.instagram.com/creativedesigndazzle/"
-data-instgrm-version="14"></blockquote>
+<iframe src="https://www.instagram.com/reel/C8l3TjJxH8o/embed"></iframe>
+
+<iframe src="https://www.instagram.com/reel/C9Vb98pPj0k/embed"></iframe>
+
+<iframe src="https://www.instagram.com/reel/C9F4H6xJpR7/embed"></iframe>
 
 </div>
-
-<script async src="//www.instagram.com/embed.js"></script>
-
-<p style="margin-top:30px;">
-<a href="https://www.instagram.com/creativedesigndazzle/" target="_blank"
-style="padding:12px 24px;background:#E1306C;border-radius:25px;color:white;text-decoration:none;">
-Visit Instagram
-</a>
-</p>
 
 </section>
 
 
-<section id="contact" class="section">
+
+<!-- CONTACT -->
+
+<section id="contact" class="section contact">
 
 <h2>Contact</h2>
 
 <p>Email: creativedesigndazzle@gmail.com</p>
 
+<p>Instagram: @creativedesigndazzle</p>
+
+<p>YouTube: Creative Design Dazzle</p>
+
 </section>
+
 
 
 <footer>
 
-<p>© 2026 Creative Design Dazzle</p>
+© 2026 Creative Design Dazzle
 
 </footer>
+
+
+
+<script>
+
+function showCategory(cat){
+
+document.querySelectorAll(".category").forEach(c=>{
+c.classList.remove("active")
+})
+
+document.getElementById(cat).classList.add("active")
+
+document.querySelectorAll(".tab").forEach(t=>{
+t.classList.remove("active")
+})
+
+event.target.classList.add("active")
+
+}
+
+</script>
+
 
 </body>
 
