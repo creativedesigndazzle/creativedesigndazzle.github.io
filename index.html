@@ -7,9 +7,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Creative Design Dazzle</title>
+<title>Creative Design Dazzle – Logo & Social Media Designer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta name="description" content="Creative Design Dazzle is a graphic design portfolio specializing in logo design, social media creatives, and branding visuals.">
+
+<meta name="keywords" content="logo designer, social media design, branding, graphic design portfolio">
+
+<meta name="author" content="Creative Design Dazzle">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -23,27 +29,8 @@ font-family:Poppins;
 body{
 background:#0f0f0f;
 color:white;
-overflow-x:hidden;
+scroll-behavior:smooth;
 }
-
-
-/* LOADING SCREEN */
-
-#loader{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999;
-font-size:28px;
-letter-spacing:2px;
-}
-
 
 /* NAVBAR */
 
@@ -54,27 +41,31 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 60px;
-background:black;
+padding:18px 10%;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
 z-index:1000;
 }
 
 .logo img{
-height:45px;
+height:40px;
 }
 
 nav ul{
 display:flex;
+gap:30px;
 list-style:none;
-gap:35px;
 }
 
 nav ul li a{
-color:white;
 text-decoration:none;
+color:white;
 font-weight:500;
 }
 
+nav ul li a:hover{
+color:#ff4ecd;
+}
 
 /* HERO */
 
@@ -82,10 +73,18 @@ font-weight:500;
 height:100vh;
 display:flex;
 flex-direction:column;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
-background:linear-gradient(135deg,#ff4ecd,#6a5cff);
+background:linear-gradient(135deg,#ff4ecd,#6a5cff,#ff7a18);
+background-size:400% 400%;
+animation:gradient 10s ease infinite;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 
 .hero h1{
@@ -99,16 +98,14 @@ margin-bottom:30px;
 }
 
 .hero button{
-padding:14px 35px;
+padding:14px 40px;
 border:none;
 border-radius:40px;
-font-size:16px;
-cursor:pointer;
 background:white;
 color:black;
 font-weight:bold;
+cursor:pointer;
 }
-
 
 /* SECTION */
 
@@ -122,6 +119,15 @@ font-size:40px;
 margin-bottom:40px;
 }
 
+/* ABOUT */
+
+.about{
+max-width:850px;
+margin:auto;
+text-align:left;
+line-height:28px;
+font-size:17px;
+}
 
 /* SERVICES */
 
@@ -132,112 +138,62 @@ gap:30px;
 }
 
 .service{
-background:#1b1b1b;
+background:#1c1c1c;
 padding:30px;
-border-radius:12px;
+border-radius:14px;
 transition:0.3s;
 }
 
 .service:hover{
 transform:translateY(-10px);
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
 }
-
 
 /* PORTFOLIO */
 
-.tabs{
-display:flex;
-justify-content:center;
-gap:15px;
-margin-bottom:40px;
-flex-wrap:wrap;
-}
-
-.tab{
-padding:10px 20px;
-border:none;
-background:#eee;
-color:black;
-border-radius:25px;
-cursor:pointer;
-font-weight:bold;
-}
-
-.tab.active{
-background:black;
-color:white;
-}
-
-.category{
-display:none;
-}
-
-.category.active{
-display:block;
-}
-
-.slider{
-display:flex;
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
+}
+
+.project{
+position:relative;
 overflow:hidden;
+border-radius:12px;
 }
 
-.slide-track{
-display:flex;
-gap:25px;
-animation:scroll 25s linear infinite;
-}
-
-@keyframes scroll{
-0%{transform:translateX(0)}
-100%{transform:translateX(-50%)}
-}
-
-.card img{
-width:260px;
-border-radius:14px;
-cursor:pointer;
-transition:0.4s;
-}
-
-.card img:hover{
-transform:scale(1.08);
-box-shadow:0 20px 40px rgba(0,0,0,0.6);
-}
-
-.card p{
-margin-top:10px;
-}
-
-
-/* POPUP */
-
-.popup{
-position:fixed;
-top:0;
-left:0;
+.project img{
 width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:2000;
+transition:0.5s;
 }
 
-.popup img{
-max-width:90%;
-max-height:90%;
+.project:hover img{
+transform:scale(1.1);
 }
 
-.popup span{
+.project-title{
 position:absolute;
-top:30px;
-right:40px;
-font-size:40px;
-cursor:pointer;
+bottom:0;
+width:100%;
+background:rgba(0,0,0,0.6);
+padding:10px;
+font-size:14px;
 }
 
+/* TESTIMONIALS */
+
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.testimonial{
+background:#1c1c1c;
+padding:25px;
+border-radius:10px;
+}
 
 /* INSTAGRAM */
 
@@ -245,32 +201,34 @@ cursor:pointer;
 display:inline-block;
 margin-top:20px;
 padding:12px 30px;
+border-radius:30px;
 background:#ff4ecd;
 color:white;
 text-decoration:none;
-border-radius:25px;
 }
 
+/* CONTACT */
+
+.contact p{
+margin:10px 0;
+}
 
 /* FOOTER */
 
 footer{
 background:black;
-padding:25px;
+padding:30px;
 text-align:center;
-margin-top:50px;
+margin-top:60px;
 }
 
 </style>
 
 </head>
 
-
 <body>
 
-
-<div id="loader">Creative Design Dazzle</div>
-
+<!-- NAVBAR -->
 
 <nav>
 
@@ -280,6 +238,7 @@ margin-top:50px;
 
 <ul>
 <li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
 <li><a href="#services">Services</a></li>
 <li><a href="#portfolio">Portfolio</a></li>
 <li><a href="#contact">Contact</a></li>
@@ -288,20 +247,79 @@ margin-top:50px;
 </nav>
 
 
+<!-- HERO -->
 
 <section class="hero" id="home">
 
 <h1>Creative Design Dazzle</h1>
 
-<p>Creative inspiration, visual storytelling & digital design ideas</p>
+<p>🎨 Graphic Design for Brands<br>
+🚀 Logos • Social Media • Flyers<br>
+✨ Helping businesses stand out online</p>
 
 <button onclick="document.getElementById('portfolio').scrollIntoView()">
-Explore Projects
+View Portfolio
 </button>
 
 </section>
 
 
+<!-- ABOUT -->
+
+<section id="about" class="section">
+
+<h2>About Me</h2>
+
+<div class="about">
+
+<p><strong>Welcome to Creative Design Dazzle 🎨</strong></p>
+
+<p>
+I’m a passionate Graphic Designer specializing in logo design, social media creatives, and brand visuals that help businesses stand out in today’s digital world.
+</p>
+
+<p>
+My mission is simple — to transform ideas into powerful visual identities that capture attention and build strong brand recognition.
+</p>
+
+<p>
+At Creative Design Dazzle, I focus on creating professional, affordable, and impactful designs for startups, entrepreneurs, and growing brands.
+</p>
+
+<br>
+
+<h3>What I Do</h3>
+
+<p>✨ Logo Design & Brand Identity</p>
+<p>📱 Social Media Post & Ad Creatives</p>
+<p>🎨 Promotional Graphics & Flyers</p>
+<p>🚀 Visual Branding for Businesses</p>
+
+<br>
+
+<p>
+I believe great design is not just about looking good — it’s about communicating your brand story effectively.
+</p>
+
+<br>
+
+<h3>Why Creative Design Dazzle?</h3>
+
+<p>✔ Professional and clean designs</p>
+<p>✔ Affordable solutions for businesses</p>
+<p>✔ Creative concepts tailored to your brand</p>
+<p>✔ Fast and reliable design support</p>
+
+<br>
+
+<p><strong>✨ Designing success, one pixel at a time.</strong></p>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
 
 <section id="services" class="section">
 
@@ -311,22 +329,22 @@ Explore Projects
 
 <div class="service">
 <h3>Logo Design</h3>
-<p>Creative and professional brand logos.</p>
+<p>Professional brand identity logos.</p>
 </div>
 
 <div class="service">
 <h3>Social Media Design</h3>
-<p>Eye-catching posts and campaigns.</p>
+<p>Creative marketing visuals.</p>
 </div>
 
 <div class="service">
 <h3>Moodboards</h3>
-<p>Creative visual identity concepts.</p>
+<p>Brand visual inspiration.</p>
 </div>
 
 <div class="service">
-<h3>Poster Design</h3>
-<p>Event posters and marketing creatives.</p>
+<h3>Flyers & Posters</h3>
+<p>Marketing creatives for promotions.</p>
 </div>
 
 </div>
@@ -334,69 +352,42 @@ Explore Projects
 </section>
 
 
+<!-- PORTFOLIO -->
 
 <section id="portfolio" class="section">
 
 <h2>Creative Projects</h2>
 
-<div class="tabs">
+<div class="portfolio-grid">
 
-<button class="tab active" onclick="showCategory('logo')">Logo</button>
-<button class="tab" onclick="showCategory('social')">Social Media Design</button>
-<button class="tab" onclick="showCategory('moodboard')">Moodboards</button>
-
+<div class="project">
+<img src="Project11.jpg">
+<div class="project-title">Logo Design</div>
 </div>
 
-
-
-<div class="category active" id="logo">
-
-<div class="slider">
-<div class="slide-track">
-
-<div class="card"><img src="Project11.jpg" onclick="openPopup(this)"><p>Brand Logo</p></div>
-<div class="card"><img src="Project12.jpg" onclick="openPopup(this)"><p>Modern Logo</p></div>
-<div class="card"><img src="Project13.jpg" onclick="openPopup(this)"><p>Creative Logo</p></div>
-<div class="card"><img src="Project14.jpg" onclick="openPopup(this)"><p>Minimal Logo</p></div>
-<div class="card"><img src="Project15.jpg" onclick="openPopup(this)"><p>Event Logo</p></div>
-
-</div>
+<div class="project">
+<img src="Project12.jpg">
+<div class="project-title">Brand Logo</div>
 </div>
 
+<div class="project">
+<img src="Project1.jpg">
+<div class="project-title">Social Media Creative</div>
 </div>
 
-
-
-<div class="category" id="social">
-
-<div class="slider">
-<div class="slide-track">
-
-<div class="card"><img src="Project1.jpg" onclick="openPopup(this)"><p>Instagram Post</p></div>
-<div class="card"><img src="Project2.jpg" onclick="openPopup(this)"><p>Campaign Design</p></div>
-<div class="card"><img src="Project3.jpg" onclick="openPopup(this)"><p>Marketing Visual</p></div>
-<div class="card"><img src="Project4.jpg" onclick="openPopup(this)"><p>Event Promotion</p></div>
-<div class="card"><img src="Project5.jpg" onclick="openPopup(this)"><p>Social Creative</p></div>
-
-</div>
+<div class="project">
+<img src="Project2.jpg">
+<div class="project-title">Campaign Design</div>
 </div>
 
+<div class="project">
+<img src="Project6.jpg">
+<div class="project-title">Moodboard</div>
 </div>
 
-
-
-<div class="category" id="moodboard">
-
-<div class="slider">
-<div class="slide-track">
-
-<div class="card"><img src="Project6.jpg" onclick="openPopup(this)"><p>Moodboard</p></div>
-<div class="card"><img src="Project7.jpg" onclick="openPopup(this)"><p>Brand Moodboard</p></div>
-<div class="card"><img src="Project8.jpg" onclick="openPopup(this)"><p>Design Concept</p></div>
-<div class="card"><img src="Project9.jpg" onclick="openPopup(this)"><p>Creative Board</p></div>
-<div class="card"><img src="Project10.jpg" onclick="openPopup(this)"><p>Visual Style</p></div>
-
-</div>
+<div class="project">
+<img src="Project7.jpg">
+<div class="project-title">Brand Moodboard</div>
 </div>
 
 </div>
@@ -404,6 +395,35 @@ Explore Projects
 </section>
 
 
+<!-- TESTIMONIALS -->
+
+<section class="section">
+
+<h2>Client Testimonials</h2>
+
+<div class="testimonials">
+
+<div class="testimonial">
+<p>"Amazing creative work and attention to detail!"</p>
+<strong>Client Feedback</strong>
+</div>
+
+<div class="testimonial">
+<p>"Professional design concepts and great visual storytelling."</p>
+<strong>Brand Collaboration</strong>
+</div>
+
+<div class="testimonial">
+<p>"Creative Design Dazzle delivers eye-catching designs every time."</p>
+<strong>Marketing Team</strong>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- INSTAGRAM -->
 
 <section class="section instagram">
 
@@ -418,8 +438,9 @@ Follow @creativedesigndazzle
 </section>
 
 
+<!-- CONTACT -->
 
-<section id="contact" class="section">
+<section id="contact" class="section contact">
 
 <h2>Contact</h2>
 
@@ -429,58 +450,13 @@ Follow @creativedesigndazzle
 </section>
 
 
-
 <footer>
 
 © 2026 Creative Design Dazzle
 
 </footer>
 
-
-
-<div class="popup" id="popup">
-
-<span onclick="closePopup()">×</span>
-
-<img id="popup-img">
-
-</div>
-
-
-
-<script>
-
-window.onload=function(){
-document.getElementById("loader").style.display="none";
-}
-
-function showCategory(cat){
-
-document.querySelectorAll(".category").forEach(c=>{
-c.classList.remove("active")
-})
-
-document.getElementById(cat).classList.add("active")
-
-document.querySelectorAll(".tab").forEach(t=>{
-t.classList.remove("active")
-})
-
-event.target.classList.add("active")
-
-}
-
-function openPopup(img){
-document.getElementById("popup").style.display="flex"
-document.getElementById("popup-img").src=img.src
-}
-
-function closePopup(){
-document.getElementById("popup").style.display="none"
-}
-
-</script>
-
 </body>
+
 </html>
 ```
