@@ -9,7 +9,7 @@
 
 <title>Creative Design Dazzle</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -24,8 +24,26 @@ body{
 background:#0f0f0f;
 color:white;
 overflow-x:hidden;
-scroll-behavior:smooth;
 }
+
+
+/* LOADING SCREEN */
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+font-size:28px;
+letter-spacing:2px;
+}
+
 
 /* NAVBAR */
 
@@ -36,31 +54,27 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 10%;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
+padding:15px 60px;
+background:black;
 z-index:1000;
 }
 
 .logo img{
-height:40px;
+height:45px;
 }
 
 nav ul{
 display:flex;
-gap:30px;
 list-style:none;
+gap:35px;
 }
 
 nav ul li a{
-text-decoration:none;
 color:white;
+text-decoration:none;
 font-weight:500;
 }
 
-nav ul li a:hover{
-color:#ff4ecd;
-}
 
 /* HERO */
 
@@ -68,41 +82,33 @@ color:#ff4ecd;
 height:100vh;
 display:flex;
 flex-direction:column;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
-background:linear-gradient(135deg,#ff4ecd,#6a5cff,#ff7a18);
-background-size:400% 400%;
-animation:gradient 10s ease infinite;
-}
-
-@keyframes gradient{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+background:linear-gradient(135deg,#ff4ecd,#6a5cff);
 }
 
 .hero h1{
-font-size:65px;
+font-size:60px;
 margin-bottom:20px;
-font-weight:700;
 }
 
 .hero p{
 font-size:20px;
-opacity:0.9;
-margin-bottom:35px;
+margin-bottom:30px;
 }
 
 .hero button{
-padding:15px 40px;
+padding:14px 35px;
 border:none;
 border-radius:40px;
+font-size:16px;
+cursor:pointer;
 background:white;
 color:black;
 font-weight:bold;
-cursor:pointer;
 }
+
 
 /* SECTION */
 
@@ -112,9 +118,10 @@ text-align:center;
 }
 
 .section h2{
-font-size:42px;
+font-size:40px;
 margin-bottom:40px;
 }
+
 
 /* SERVICES */
 
@@ -125,84 +132,145 @@ gap:30px;
 }
 
 .service{
-background:#1c1c1c;
+background:#1b1b1b;
 padding:30px;
-border-radius:14px;
+border-radius:12px;
 transition:0.3s;
 }
 
 .service:hover{
 transform:translateY(-10px);
-box-shadow:0 15px 40px rgba(0,0,0,0.5);
 }
 
-/* PORTFOLIO GRID */
 
-.portfolio-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
+/* PORTFOLIO */
+
+.tabs{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-bottom:40px;
+flex-wrap:wrap;
 }
 
-.project{
-position:relative;
-overflow:hidden;
-border-radius:12px;
+.tab{
+padding:10px 20px;
+border:none;
+background:#eee;
+color:black;
+border-radius:25px;
+cursor:pointer;
+font-weight:bold;
 }
 
-.project img{
-width:100%;
+.tab.active{
+background:black;
+color:white;
+}
+
+.category{
+display:none;
+}
+
+.category.active{
 display:block;
-transition:0.5s;
 }
 
-.project:hover img{
-transform:scale(1.1);
+.slider{
+display:flex;
+gap:25px;
+overflow:hidden;
 }
 
-.project-title{
-position:absolute;
-bottom:0;
+.slide-track{
+display:flex;
+gap:25px;
+animation:scroll 25s linear infinite;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
+}
+
+.card img{
+width:260px;
+border-radius:14px;
+cursor:pointer;
+transition:0.4s;
+}
+
+.card img:hover{
+transform:scale(1.08);
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+.card p{
+margin-top:10px;
+}
+
+
+/* POPUP */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
 width:100%;
-padding:15px;
-background:rgba(0,0,0,0.6);
-font-size:14px;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:2000;
 }
+
+.popup img{
+max-width:90%;
+max-height:90%;
+}
+
+.popup span{
+position:absolute;
+top:30px;
+right:40px;
+font-size:40px;
+cursor:pointer;
+}
+
 
 /* INSTAGRAM */
 
 .instagram a{
 display:inline-block;
-margin-top:25px;
-padding:12px 28px;
-border-radius:30px;
+margin-top:20px;
+padding:12px 30px;
 background:#ff4ecd;
 color:white;
 text-decoration:none;
+border-radius:25px;
 }
 
-/* CONTACT */
-
-.contact p{
-margin:10px 0;
-}
 
 /* FOOTER */
 
 footer{
 background:black;
-padding:30px;
+padding:25px;
 text-align:center;
-margin-top:60px;
+margin-top:50px;
 }
 
 </style>
 
 </head>
 
+
 <body>
 
-<!-- NAVBAR -->
+
+<div id="loader">Creative Design Dazzle</div>
+
 
 <nav>
 
@@ -219,7 +287,7 @@ margin-top:60px;
 
 </nav>
 
-<!-- HERO -->
+
 
 <section class="hero" id="home">
 
@@ -228,12 +296,12 @@ margin-top:60px;
 <p>Creative inspiration, visual storytelling & digital design ideas</p>
 
 <button onclick="document.getElementById('portfolio').scrollIntoView()">
-View Portfolio
+Explore Projects
 </button>
 
 </section>
 
-<!-- SERVICES -->
+
 
 <section id="services" class="section">
 
@@ -243,17 +311,17 @@ View Portfolio
 
 <div class="service">
 <h3>Logo Design</h3>
-<p>Professional brand identity logos.</p>
+<p>Creative and professional brand logos.</p>
 </div>
 
 <div class="service">
 <h3>Social Media Design</h3>
-<p>Creative marketing visuals.</p>
+<p>Eye-catching posts and campaigns.</p>
 </div>
 
 <div class="service">
 <h3>Moodboards</h3>
-<p>Brand visual direction & inspiration.</p>
+<p>Creative visual identity concepts.</p>
 </div>
 
 <div class="service">
@@ -265,59 +333,77 @@ View Portfolio
 
 </section>
 
-<!-- PORTFOLIO -->
+
 
 <section id="portfolio" class="section">
 
 <h2>Creative Projects</h2>
 
-<div class="portfolio-grid">
+<div class="tabs">
 
-<div class="project">
-<img src="Project11.jpg">
-<div class="project-title">Logo Design</div>
+<button class="tab active" onclick="showCategory('logo')">Logo</button>
+<button class="tab" onclick="showCategory('social')">Social Media Design</button>
+<button class="tab" onclick="showCategory('moodboard')">Moodboards</button>
+
 </div>
 
-<div class="project">
-<img src="Project12.jpg">
-<div class="project-title">Brand Logo</div>
+
+
+<div class="category active" id="logo">
+
+<div class="slider">
+<div class="slide-track">
+
+<div class="card"><img src="Project11.jpg" onclick="openPopup(this)"><p>Brand Logo</p></div>
+<div class="card"><img src="Project12.jpg" onclick="openPopup(this)"><p>Modern Logo</p></div>
+<div class="card"><img src="Project13.jpg" onclick="openPopup(this)"><p>Creative Logo</p></div>
+<div class="card"><img src="Project14.jpg" onclick="openPopup(this)"><p>Minimal Logo</p></div>
+<div class="card"><img src="Project15.jpg" onclick="openPopup(this)"><p>Event Logo</p></div>
+
+</div>
 </div>
 
-<div class="project">
-<img src="Project13.jpg">
-<div class="project-title">Creative Logo</div>
 </div>
 
-<div class="project">
-<img src="Project1.jpg">
-<div class="project-title">Social Media Design</div>
+
+
+<div class="category" id="social">
+
+<div class="slider">
+<div class="slide-track">
+
+<div class="card"><img src="Project1.jpg" onclick="openPopup(this)"><p>Instagram Post</p></div>
+<div class="card"><img src="Project2.jpg" onclick="openPopup(this)"><p>Campaign Design</p></div>
+<div class="card"><img src="Project3.jpg" onclick="openPopup(this)"><p>Marketing Visual</p></div>
+<div class="card"><img src="Project4.jpg" onclick="openPopup(this)"><p>Event Promotion</p></div>
+<div class="card"><img src="Project5.jpg" onclick="openPopup(this)"><p>Social Creative</p></div>
+
+</div>
 </div>
 
-<div class="project">
-<img src="Project2.jpg">
-<div class="project-title">Campaign Design</div>
 </div>
 
-<div class="project">
-<img src="Project6.jpg">
-<div class="project-title">Moodboard</div>
-</div>
 
-<div class="project">
-<img src="Project7.jpg">
-<div class="project-title">Brand Moodboard</div>
-</div>
 
-<div class="project">
-<img src="Project8.jpg">
-<div class="project-title">Creative Board</div>
+<div class="category" id="moodboard">
+
+<div class="slider">
+<div class="slide-track">
+
+<div class="card"><img src="Project6.jpg" onclick="openPopup(this)"><p>Moodboard</p></div>
+<div class="card"><img src="Project7.jpg" onclick="openPopup(this)"><p>Brand Moodboard</p></div>
+<div class="card"><img src="Project8.jpg" onclick="openPopup(this)"><p>Design Concept</p></div>
+<div class="card"><img src="Project9.jpg" onclick="openPopup(this)"><p>Creative Board</p></div>
+<div class="card"><img src="Project10.jpg" onclick="openPopup(this)"><p>Visual Style</p></div>
+
+</div>
 </div>
 
 </div>
 
 </section>
 
-<!-- INSTAGRAM -->
+
 
 <section class="section instagram">
 
@@ -331,9 +417,9 @@ Follow @creativedesigndazzle
 
 </section>
 
-<!-- CONTACT -->
 
-<section id="contact" class="section contact">
+
+<section id="contact" class="section">
 
 <h2>Contact</h2>
 
@@ -342,13 +428,59 @@ Follow @creativedesigndazzle
 
 </section>
 
+
+
 <footer>
 
 © 2026 Creative Design Dazzle
 
 </footer>
 
-</body>
 
+
+<div class="popup" id="popup">
+
+<span onclick="closePopup()">×</span>
+
+<img id="popup-img">
+
+</div>
+
+
+
+<script>
+
+window.onload=function(){
+document.getElementById("loader").style.display="none";
+}
+
+function showCategory(cat){
+
+document.querySelectorAll(".category").forEach(c=>{
+c.classList.remove("active")
+})
+
+document.getElementById(cat).classList.add("active")
+
+document.querySelectorAll(".tab").forEach(t=>{
+t.classList.remove("active")
+})
+
+event.target.classList.add("active")
+
+}
+
+function openPopup(img){
+document.getElementById("popup").style.display="flex"
+document.getElementById("popup-img").src=img.src
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none"
+}
+
+</script>
+
+</body>
 </html>
 ```
