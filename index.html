@@ -149,36 +149,70 @@ transform:translateY(-10px);
 box-shadow:0 15px 40px rgba(0,0,0,0.5);
 }
 
-/* PORTFOLIO */
+/* PORTFOLIO SLIDER */
 
-.portfolio-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+.tabs{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-bottom:40px;
+flex-wrap:wrap;
+}
+
+.tab{
+padding:10px 20px;
+border:none;
+background:#eee;
+color:black;
+border-radius:25px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.tab.active{
+background:black;
+color:white;
+}
+
+.category{
+display:none;
+}
+
+.category.active{
+display:block;
+}
+
+.slider{
+display:flex;
 gap:25px;
-}
-
-.project{
-position:relative;
 overflow:hidden;
-border-radius:12px;
 }
 
-.project img{
-width:100%;
-transition:0.5s;
+.slide-track{
+display:flex;
+gap:25px;
+animation:scroll 25s linear infinite;
 }
 
-.project:hover img{
-transform:scale(1.1);
+@keyframes scroll{
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
 }
 
-.project-title{
-position:absolute;
-bottom:0;
-width:100%;
-background:rgba(0,0,0,0.6);
-padding:10px;
-font-size:14px;
+.card img{
+width:260px;
+border-radius:14px;
+cursor:pointer;
+transition:0.4s;
+}
+
+.card img:hover{
+transform:scale(1.08);
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+.card p{
+margin-top:10px;
 }
 
 /* TESTIMONIALS */
@@ -205,12 +239,6 @@ border-radius:30px;
 background:#ff4ecd;
 color:white;
 text-decoration:none;
-}
-
-/* CONTACT */
-
-.contact p{
-margin:10px 0;
 }
 
 /* FOOTER */
@@ -240,7 +268,7 @@ margin-top:60px;
 <li><a href="#home">Home</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#services">Services</a></li>
-<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#portfolio">Projects</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 
@@ -253,12 +281,14 @@ margin-top:60px;
 
 <h1>Creative Design Dazzle</h1>
 
-<p>🎨 Graphic Design for Brands<br>
+<p>
+🎨 Graphic Design for Brands<br>
 🚀 Logos • Social Media • Flyers<br>
-✨ Helping businesses stand out online</p>
+✨ Helping businesses stand out online
+</p>
 
 <button onclick="document.getElementById('portfolio').scrollIntoView()">
-View Portfolio
+View Projects
 </button>
 
 </section>
@@ -294,169 +324,4 @@ At Creative Design Dazzle, I focus on creating professional, affordable, and imp
 <p>📱 Social Media Post & Ad Creatives</p>
 <p>🎨 Promotional Graphics & Flyers</p>
 <p>🚀 Visual Branding for Businesses</p>
-
-<br>
-
-<p>
-I believe great design is not just about looking good — it’s about communicating your brand story effectively.
-</p>
-
-<br>
-
-<h3>Why Creative Design Dazzle?</h3>
-
-<p>✔ Professional and clean designs</p>
-<p>✔ Affordable solutions for businesses</p>
-<p>✔ Creative concepts tailored to your brand</p>
-<p>✔ Fast and reliable design support</p>
-
-<br>
-
-<p><strong>✨ Designing success, one pixel at a time.</strong></p>
-
-</div>
-
-</section>
-
-
-<!-- SERVICES -->
-
-<section id="services" class="section">
-
-<h2>Services</h2>
-
-<div class="services">
-
-<div class="service">
-<h3>Logo Design</h3>
-<p>Professional brand identity logos.</p>
-</div>
-
-<div class="service">
-<h3>Social Media Design</h3>
-<p>Creative marketing visuals.</p>
-</div>
-
-<div class="service">
-<h3>Moodboards</h3>
-<p>Brand visual inspiration.</p>
-</div>
-
-<div class="service">
-<h3>Flyers & Posters</h3>
-<p>Marketing creatives for promotions.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PORTFOLIO -->
-
-<section id="portfolio" class="section">
-
-<h2>Creative Projects</h2>
-
-<div class="portfolio-grid">
-
-<div class="project">
-<img src="Project11.jpg">
-<div class="project-title">Logo Design</div>
-</div>
-
-<div class="project">
-<img src="Project12.jpg">
-<div class="project-title">Brand Logo</div>
-</div>
-
-<div class="project">
-<img src="Project1.jpg">
-<div class="project-title">Social Media Creative</div>
-</div>
-
-<div class="project">
-<img src="Project2.jpg">
-<div class="project-title">Campaign Design</div>
-</div>
-
-<div class="project">
-<img src="Project6.jpg">
-<div class="project-title">Moodboard</div>
-</div>
-
-<div class="project">
-<img src="Project7.jpg">
-<div class="project-title">Brand Moodboard</div>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- TESTIMONIALS -->
-
-<section class="section">
-
-<h2>Client Testimonials</h2>
-
-<div class="testimonials">
-
-<div class="testimonial">
-<p>"Amazing creative work and attention to detail!"</p>
-<strong>Client Feedback</strong>
-</div>
-
-<div class="testimonial">
-<p>"Professional design concepts and great visual storytelling."</p>
-<strong>Brand Collaboration</strong>
-</div>
-
-<div class="testimonial">
-<p>"Creative Design Dazzle delivers eye-catching designs every time."</p>
-<strong>Marketing Team</strong>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- INSTAGRAM -->
-
-<section class="section instagram">
-
-<h2>Follow on Instagram</h2>
-
-<p>See more creative content and reels.</p>
-
-<a href="https://www.instagram.com/creativedesigndazzle/" target="_blank">
-Follow @creativedesigndazzle
-</a>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact" class="section contact">
-
-<h2>Contact</h2>
-
-<p>Email: creativedesigndazzle@gmail.com</p>
-<p>Instagram: @creativedesigndazzle</p>
-
-</section>
-
-
-<footer>
-
-© 2026 Creative Design Dazzle
-
-</footer>
-
-</body>
-
-</html>
 ```
